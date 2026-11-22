@@ -1,12 +1,19 @@
 export const siteName = "Image Extractor";
 export const updatedLabel = "November 22, 2026";
 
+const productionUrl = "https://www.imageextractor.site";
+
 export function getSiteUrl() {
-  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (configured) return configured.replace(/\/$/, "");
-  const vercel = process.env.VERCEL_URL?.trim();
-  if (vercel) return `https://${vercel.replace(/\/$/, "")}`;
-  return "http://localhost:3000";
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
+  if (configured) {
+    try {
+      const host = new URL(configured).hostname;
+      if (host === "www.imageextractor.site" || host === "imageextractor.site") return configured;
+    } catch {
+      // Ignore an invalid override and keep the public domain.
+    }
+  }
+  return productionUrl;
 }
 
 export const pages = {
