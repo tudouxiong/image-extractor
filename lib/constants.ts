@@ -1,0 +1,9 @@
+export const MAX_EXTRACTED_IMAGES = 150;
+export const MAX_ZIP_IMAGES = 40;
+export const MAX_START_URLS = 8;
+export const MAX_PAGES = 8;
+export const MAX_LOCAL_IMAGES = 200;
+export const MAX_DOCUMENT_BYTES = 30 * 1024 * 1024;
+export const MAX_HTML_BYTES = 3 * 1024 * 1024;
+export const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
+export const MAX_ZIP_BYTES = 60 * 1024 * 1024;
